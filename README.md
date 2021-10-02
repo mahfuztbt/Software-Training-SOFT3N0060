@@ -1,5 +1,8 @@
 # Online shop
 ## We are working on it
+## update
+- admin can add product 30.09.2021
+- customer can register, login, and change password 01.10.2021
 ### for now static page is complete for this website, some screenshot in below
 
 
