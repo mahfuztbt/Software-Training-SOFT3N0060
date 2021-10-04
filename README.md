@@ -4,6 +4,7 @@
 - admin can add product 30.09.2021
 - customer can register, login, and change password 02.10.2021
 - reset password done 03.10.2021
+- customer can add product to their cart, increase product, decrease and also can remove   04.10.2021
 ### for now static page is complete for this website, some screenshot in below
 
 
