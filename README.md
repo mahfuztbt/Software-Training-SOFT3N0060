@@ -5,6 +5,7 @@
 - customer can register, login, and change password 02.10.2021
 - reset password done 03.10.2021
 - customer can add product to their cart, increase product, decrease and also can remove   04.10.2021
+- cart, place order, buy now. project is almost done, just need to fix small error 06.10.2021
 ### for now static page is complete for this website, some screenshot in below
 
 
