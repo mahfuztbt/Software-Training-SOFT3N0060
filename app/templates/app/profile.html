@@ -4,47 +4,31 @@
 {% block main-content %}
 <div class="container my-5">
  <div class="row">
-  <h3>Welcome Mahfuz</h3>
+  <h3>Welcome <span class="text-captitalize"> {{ request.user }}</span></h3>
   <div class="col-sm-2 border-end">
    <ul class="list-unstyled">
-    <li class="d-grid"><a href="{% url 'profile' %}" class="btn btn-primary">Profile</a></li>
+    <li class="d-grid"><a href="{% url 'profile' %}" class="btn {{ active }}">Profile</a></li>
     <li class="d-grid"><a href="{% url 'address' %}" class="btn">Address</a></li>
    </ul>
   </div>
-  <div class="col-sm-8 offset-sm-1">
-   <form action="" method="post">
-    {% csrf_token %}
-    <div class="col-12">
-      <label for="inputName" class="form-label">Name</label>
-      <input type="text" class="form-control" id="inputEmail">
+     <div class="col-sm-8 offset-sm-1">
+         <form action="" method="post" novalidate>
+             {% csrf_token %}
+             {% for fm in form %}
+                 <div class="form-group col-lg-6 mb-3">
+                 {{ fm.label_tag }} {{ fm }} <small class="text-danger">{{ fm.errors|striptags }}</small>
+                 </div>
+             {% endfor %}
+         <div class="col-12 mt-3">
+             <button type="submit" class="btn btn-primary mb-3">Submit</button>
+         </div>
+         </form>
+     {% if messages %}
+     {% for message in messages %}
+     <p {% if message.tags %} class="alert alert-{{ message.tags }} mb-5" {% endif %}>{{ message }}</p>
+     {% endfor %}
+     {% endif %}
     </div>
-    <div class="col-12">
-      <label for="inputAddress" class="form-label">Address</label>
-      <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-    </div>
-    <div class="col-12">
-      <label for="inputAddress2" class="form-label">Address 2</label>
-      <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-    </div>
-    <div class="col-12">
-      <label for="inputCity" class="form-label">City</label>
-      <input type="text" class="form-control" id="inputCity">
-    </div>
-    <div class="col-md-4">
-      <label for="inputState" class="form-label">State</label>
-      <select id="inputState" class="form-select">
-        <option selected>Choose...</option>
-        <option>...</option>
-      </select>
-    </div>
-    <div class="col-md-2">
-      <label for="inputZip" class="form-label">Zip</label>
-      <input type="text" class="form-control" id="inputZip">
-    </div>
-    <div class="col-12 mt-3">
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </div>
-   </form>
   </div>
  </div>
 </div>
